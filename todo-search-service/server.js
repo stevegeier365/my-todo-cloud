@@ -19,7 +19,8 @@ app.use(
 
 // Elasticsearch Client Setup //////////////////////////////////////////////////////////////////////////////////////////
 const elasticClient = new elasticsearch.Client({
-    hosts: [ envProps.elasticHost + ':' + envProps.elasticPort]
+  //    hosts: [ envProps.elasticHost + ':' + envProps.elasticPort]
+        hosts: [ envProps.elasticHost ]
 });
 // Ping the client to be sure Elastic is up
 elasticClient.ping({
@@ -70,4 +71,3 @@ app.route('/api/v1/search').post((req, res) => {
 app.listen(port, () => {
     console.log('Todo Search Service started!');
 });
-
